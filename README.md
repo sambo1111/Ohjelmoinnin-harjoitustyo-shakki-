@@ -1,4 +1,3 @@
 
 # shakki
-jejejee
-joujuuuuuuuu
+
