@@ -18,3 +18,5 @@ Kuka tahansa
 
 ### Luokkakaavio:
 
+![Luokkakaavio](https://raw.githubusercontent.com/sambo1111/shakki/master/dokumentointi/luokkakaavio.JPG)
+
