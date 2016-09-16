@@ -5,5 +5,5 @@ Päivä | Tunnit | Kuvaus
 09.09 | 0.5h | Repon viimeistely
 13.09 | 4h | Projektin logiikan luonti ja suunnittelu
 15.09 | 5h | Projektin logiikan luonti ja testien tekeminen
-16.09 | 3h | Pit-testin ja checkstyle raportin tekeminen
+16.09 | 3h | Pit-testin ja checkstyle raportin tekeminen sekä luokkakaavion piirtäminen
 ... | ... | ...
