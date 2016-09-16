@@ -18,4 +18,4 @@ Kuka tahansa
 
 ### Luokkakaavio:
 
-![Luokkakaavio](/sambo1111/shakki/dokumentointi/luokkakaavio.JPG "Luokkakaavio")
+![Luokkakaavio](shakki/dokumentointi/luokkakaavio.JPG "Luokkakaavio")
