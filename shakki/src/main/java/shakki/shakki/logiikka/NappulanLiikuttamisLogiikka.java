@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package shakki.shakki.logiikka;
+
 import shakki.shakki.logiikka.nappulat.*;
+
 /**
  *
  * @author hasasami
@@ -21,7 +23,7 @@ public class NappulanLiikuttamisLogiikka {
         if (nappula.getClass().equals(Torni.class)) {
 
             // OIKEALLE
-            for (int i = sarake+1; i <= 7; i++) {
+            for (int i = sarake + 1; i <= 7; i++) {
 
                 if (!tarkistaOnkoMahdollinen(rivi, i, pelilauta, nappula)) {
 
@@ -29,9 +31,9 @@ public class NappulanLiikuttamisLogiikka {
                 }
 
             }
-            
+
             //VASEN
-            for (int i = sarake-1; i >= 0; i--) {
+            for (int i = sarake - 1; i >= 0; i--) {
 
                 if (!tarkistaOnkoMahdollinen(rivi, i, pelilauta, nappula)) {
 
@@ -41,7 +43,7 @@ public class NappulanLiikuttamisLogiikka {
             }
 
             //ALAS
-            for (int i = rivi+1; i <= 7; i++) {
+            for (int i = rivi + 1; i <= 7; i++) {
 
                 if (!tarkistaOnkoMahdollinen(i, sarake, pelilauta, nappula)) {
 
@@ -49,20 +51,19 @@ public class NappulanLiikuttamisLogiikka {
                 }
 
             }
-            
+
             //YLÖS
-            for (int i = rivi-1; i >= 0; i--) {
+            for (int i = rivi - 1; i >= 0; i--) {
 
                 if (!tarkistaOnkoMahdollinen(i, sarake, pelilauta, nappula)) {
 
                     break;
                 }
             }
-        } //LÄHETIN SIIRROT
-        else if (nappula.getClass().equals(Lahetti.class)) {
+        } else if (nappula.getClass().equals(Lahetti.class)) {
 
-            int i = rivi+1;
-            int j = sarake+1;
+            int i = rivi + 1;
+            int j = sarake + 1;
 
             while (i <= 7 || j <= 7) {
 
@@ -75,8 +76,8 @@ public class NappulanLiikuttamisLogiikka {
 
             }
 
-            i = rivi+1;
-            j = sarake-1;
+            i = rivi + 1;
+            j = sarake - 1;
 
             while (i <= 7 || j >= 0) {
 
@@ -88,8 +89,8 @@ public class NappulanLiikuttamisLogiikka {
 
             }
 
-            i = rivi-1;
-            j = sarake+1;
+            i = rivi - 1;
+            j = sarake + 1;
 
             while (i >= 0 || j <= 7) {
 
@@ -101,8 +102,8 @@ public class NappulanLiikuttamisLogiikka {
 
             }
 
-            i = rivi-1;
-            j = sarake-1;
+            i = rivi - 1;
+            j = sarake - 1;
 
             while (i >= 0 || j >= 0) {
 
@@ -113,8 +114,7 @@ public class NappulanLiikuttamisLogiikka {
                 j--;
 
             }
-        } //SOTILAAN SIIRROT
-        else if (nappula.getClass().equals(Sotilas.class)) {
+        } else if (nappula.getClass().equals(Sotilas.class)) {
 
             //Pelaaja 1 aloittaa ylhäältä lautaa ja pelaaja 2 alhaalta
             if (nappula.getPelaaja().getId() == 1) {
@@ -124,7 +124,7 @@ public class NappulanLiikuttamisLogiikka {
                 tarkistaOnkoMahdollinen(rivi, sarake - 1, pelilauta, nappula);
                 //Alussa sotilas voi liikkua 2 ruutua eteenpäin
                 if (nappula.getSiirrot() < 1) {
-                    
+
                     tarkistaOnkoMahdollinen(rivi + 2, sarake, pelilauta, nappula);
                 }
 
@@ -133,14 +133,14 @@ public class NappulanLiikuttamisLogiikka {
                 tarkistaOnkoMahdollinen(rivi - 1, sarake, pelilauta, nappula);
                 tarkistaOnkoMahdollinen(rivi, sarake + 1, pelilauta, nappula);
                 tarkistaOnkoMahdollinen(rivi, sarake - 1, pelilauta, nappula);
-                
+
                 if (nappula.getSiirrot() < 1) {
-                    
+
                     tarkistaOnkoMahdollinen(rivi - 2, sarake, pelilauta, nappula);
                 }
 
             }
-            
+
             nappula.kasvataSiirtojenLkm();
 
         }
