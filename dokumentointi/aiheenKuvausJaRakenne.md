@@ -15,3 +15,7 @@ Kuka tahansa
 - Vastustajan nappulan "syöminen"
 - Mahdollisten siirtojen näyttäminen nappulakohtaisesti
 	* Siirtäminen onnistuu vain jos pelaaja valitsee sallitun ruudun
+
+### Luokkakaavio:
+
+![Luokkakaavio](/shakki/dokumentointi/luokkakaavio.jpg "Luokkakaavio")
