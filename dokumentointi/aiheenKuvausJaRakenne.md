@@ -18,4 +18,4 @@ Kuka tahansa
 
 ### Luokkakaavio:
 
-[id]: https://raw.githubusercontent.com/sambo1111/shakki/master/dokumentointi/luokkakaavio.JPG  "Luokkakaavio"
+![Alt text](shakki/dokumentointi/luokkakaavio.JPG)
