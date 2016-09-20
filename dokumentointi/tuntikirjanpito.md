@@ -6,4 +6,5 @@ Päivä | Tunnit | Kuvaus
 13.09 | 4h | Projektin logiikan luonti ja suunnittelu
 15.09 | 5h | Projektin logiikan luonti ja testien tekeminen
 16.09 | 3h | Pit-testin ja checkstyle raportin tekeminen sekä luokkakaavion piirtäminen
+20.09 | 4h | Logiikan viimeistely, refaktorointi ja testien luominen
 ... | ... | ...
