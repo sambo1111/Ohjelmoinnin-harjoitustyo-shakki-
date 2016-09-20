@@ -282,4 +282,81 @@ public class PelilautaTest {
         
     }
     
+    @Test
+    public void lahettiLiikkuuOikein1() {
+        
+        lauta.alustaPelilauta();
+        
+        lauta.poistaNappula(1, 1);
+        lauta.poistaNappula(1, 3);
+        
+        lauta.liikutaNappulaa(0, 2, 2, 0);
+        assertEquals(null, lauta.annaRuudussaOlevaNappula(0, 2));
+        assertEquals(Lahetti.class, lauta.annaRuudussaOlevaNappula(2, 0).getClass());
+        
+        lauta.liikutaNappulaa(2, 0, 4, 2);
+        assertEquals(null, lauta.annaRuudussaOlevaNappula(2, 0));
+        assertEquals(Lahetti.class, lauta.annaRuudussaOlevaNappula(4, 2).getClass());
+        
+        lauta.liikutaNappulaa(4, 2, 2, 4);
+        assertEquals(null, lauta.annaRuudussaOlevaNappula(4, 2));
+        assertEquals(Lahetti.class, lauta.annaRuudussaOlevaNappula(2, 4).getClass());
+        
+        lauta.liikutaNappulaa(2, 4, 0, 2);
+        assertEquals(null, lauta.annaRuudussaOlevaNappula(2, 4));
+        assertEquals(Lahetti.class, lauta.annaRuudussaOlevaNappula(0, 2).getClass());
+        
+    }
+    
+    @Test
+    public void lahettiLiikkuuOikein2() {
+        
+        lauta.alustaPelilauta();
+        
+        lauta.siirraNappulaVapaasti(0, 2, 3, 4);
+        assertEquals(null, lauta.annaRuudussaOlevaNappula(0, 2));
+        assertEquals(Lahetti.class, lauta.annaRuudussaOlevaNappula(3, 4).getClass());
+        
+        lauta.liikutaNappulaa(3, 4, 3, 6);
+        assertEquals(null, lauta.annaRuudussaOlevaNappula(3, 6));
+        assertEquals(Lahetti.class, lauta.annaRuudussaOlevaNappula(3, 4).getClass());
+        
+        lauta.liikutaNappulaa(3, 4, 3, 3);
+        assertEquals(null, lauta.annaRuudussaOlevaNappula(3, 3));
+        assertEquals(Lahetti.class, lauta.annaRuudussaOlevaNappula(3, 4).getClass());
+        
+        lauta.liikutaNappulaa(3, 4, 5, 4);
+        assertEquals(null, lauta.annaRuudussaOlevaNappula(5, 4));
+        assertEquals(Lahetti.class, lauta.annaRuudussaOlevaNappula(3, 4).getClass());
+        
+        lauta.liikutaNappulaa(3, 4, 2, 4);
+        assertEquals(null, lauta.annaRuudussaOlevaNappula(2, 4));
+        assertEquals(Lahetti.class, lauta.annaRuudussaOlevaNappula(3, 4).getClass());
+        
+    }
+    
+    @Test
+    public void lahettiEiLiikuNappuloidenYli() {
+        
+        lauta.alustaPelilauta();
+        
+        lauta.liikutaNappulaa(0, 2, 2, 0);
+        assertEquals(null, lauta.annaRuudussaOlevaNappula(2, 0));
+        assertEquals(Lahetti.class, lauta.annaRuudussaOlevaNappula(0, 2).getClass());
+        
+        lauta.liikutaNappulaa(0, 2, 2, 4);
+        assertEquals(null, lauta.annaRuudussaOlevaNappula(2, 4));
+        assertEquals(Lahetti.class, lauta.annaRuudussaOlevaNappula(0, 2).getClass());
+        
+        lauta.liikutaNappulaa(7, 5, 4, 2);
+        assertEquals(null, lauta.annaRuudussaOlevaNappula(4, 2));
+        assertEquals(Lahetti.class, lauta.annaRuudussaOlevaNappula(7, 5).getClass());
+        
+        lauta.liikutaNappulaa(7, 5, 5, 7);
+        assertEquals(null, lauta.annaRuudussaOlevaNappula(5, 7));
+        assertEquals(Lahetti.class, lauta.annaRuudussaOlevaNappula(7, 5).getClass());
+        
+        
+    }
+    
 }
