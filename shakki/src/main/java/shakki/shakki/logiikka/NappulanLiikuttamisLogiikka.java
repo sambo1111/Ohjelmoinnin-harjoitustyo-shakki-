@@ -34,6 +34,14 @@ public class NappulanLiikuttamisLogiikka {
         } else if (nappula.getClass().equals(Kuningatar.class)) {
 
             naytaKuningattarenMahdollisetSiirrot(pelilauta, nappula, rivi, sarake);
+            
+        } else if (nappula.getClass().equals(Kuningas.class)) {
+
+            naytaKuninkaanMahdollisetSiirrot(pelilauta, nappula, rivi, sarake);
+            
+        } else if (nappula.getClass().equals(Hevonen.class)) {
+
+            naytaHevosenMahdollisetSiirrot(pelilauta, nappula, rivi, sarake);
         }
 
         return mahdollisetSiirrot;
