@@ -5,3 +5,5 @@ Kahden pelaajan shakki
 
 - [aiheen kuvaus ja rakenne](dokumentointi/aiheenKuvausJaRakenne.md)
 - [tuntikirjanpito](dokumentointi/tuntikirjanpito.md)
+- [pit](https://htmlpreview.github.io/?https://github.com/sambo1111/shakki/blob/master/dokumentointi/pit/index.html)
+- [checkstyle] (https://htmlpreview.github.io/?https://github.com/sambo1111/shakki/blob/master/dokumentointi/checkstyle/checkstyle.html)
