@@ -1,16 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package shakki.shakki.logiikka;
-
 import shakki.shakki.logiikka.nappulat.*;
 
-/**
- *
- * @author hasasami
- */
 public class NappulanLiikuttamisLogiikka {
 
     private boolean[][] mahdollisetSiirrot;
@@ -50,7 +40,6 @@ public class NappulanLiikuttamisLogiikka {
 
     public void naytaTorninMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
 
-        //YLÖS
         for (int i = sarake + 1; i <= 7; i++) {
 
             if (!tarkistaOnkoMahdollinen(rivi, i, pelilauta, nappula)) {
@@ -58,8 +47,6 @@ public class NappulanLiikuttamisLogiikka {
                 break;
             }
         }
-
-        //VASEN
         for (int i = sarake - 1; i >= 0; i--) {
 
             if (!tarkistaOnkoMahdollinen(rivi, i, pelilauta, nappula)) {
@@ -67,8 +54,6 @@ public class NappulanLiikuttamisLogiikka {
                 break;
             }
         }
-
-        //ALAS
         for (int i = rivi + 1; i <= 7; i++) {
 
             if (!tarkistaOnkoMahdollinen(i, sarake, pelilauta, nappula)) {
@@ -76,8 +61,6 @@ public class NappulanLiikuttamisLogiikka {
                 break;
             }
         }
-
-        //YLÖS
         for (int i = rivi - 1; i >= 0; i--) {
 
             if (!tarkistaOnkoMahdollinen(i, sarake, pelilauta, nappula)) {
@@ -89,13 +72,12 @@ public class NappulanLiikuttamisLogiikka {
 
     public void naytaSotilaanMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
 
-        //Pelaaja 1 aloittaa ylhäältä lautaa ja pelaaja 2 alhaalta
         if (nappula.getPelaaja().getId() == 1) {
 
             tarkistaOnkoMahdollinen(rivi + 1, sarake, pelilauta, nappula);
             tarkistaOnkoMahdollinen(rivi, sarake + 1, pelilauta, nappula);
             tarkistaOnkoMahdollinen(rivi, sarake - 1, pelilauta, nappula);
-            //Alussa sotilas voi liikkua 2 ruutua eteenpäin
+            
             if (nappula.getSiirrot() < 1) {
 
                 tarkistaOnkoMahdollinen(rivi + 2, sarake, pelilauta, nappula);
@@ -111,11 +93,8 @@ public class NappulanLiikuttamisLogiikka {
 
                 tarkistaOnkoMahdollinen(rivi - 2, sarake, pelilauta, nappula);
             }
-
         }
-
         nappula.kasvataSiirtojenLkm();
-
     }
 
     public void naytaLahetinMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
@@ -131,9 +110,7 @@ public class NappulanLiikuttamisLogiikka {
 
             i++;
             j++;
-
         }
-
         i = rivi + 1;
         j = sarake - 1;
 
@@ -144,9 +121,7 @@ public class NappulanLiikuttamisLogiikka {
             }
             i++;
             j--;
-
         }
-
         i = rivi - 1;
         j = sarake + 1;
 
@@ -157,9 +132,7 @@ public class NappulanLiikuttamisLogiikka {
             }
             i--;
             j++;
-
         }
-
         i = rivi - 1;
         j = sarake - 1;
 
@@ -170,13 +143,11 @@ public class NappulanLiikuttamisLogiikka {
             }
             i--;
             j--;
-
         }
     }
 
     public void naytaKuningattarenMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
 
-        //Kuningatar liikkuu lahetin ja tornin tavoilla
         naytaTorninMahdollisetSiirrot(pelilauta, nappula, rivi, sarake);
         naytaLahetinMahdollisetSiirrot(pelilauta, nappula, rivi, sarake);
 
@@ -223,9 +194,7 @@ public class NappulanLiikuttamisLogiikka {
 
             }
         }
-
         return false;
-
     }
-
+    
 }

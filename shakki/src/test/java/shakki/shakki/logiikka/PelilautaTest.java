@@ -521,7 +521,7 @@ public class PelilautaTest {
         lauta.alustaPelilauta();
         
         lauta.liikutaNappulaa(7, 6, 5, 7);
-        assertEquals(null, lauta.annaRuudussaOlevaNappula(6, 7));
+        assertEquals(Sotilas.class, lauta.annaRuudussaOlevaNappula(6, 7).getClass());
         assertEquals(Hevonen.class, lauta.annaRuudussaOlevaNappula(5, 7).getClass());
         
         lauta.liikutaNappulaa(5, 7, 4, 5);
