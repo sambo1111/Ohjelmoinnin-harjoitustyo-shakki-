@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 11,
-             Errors: 0,
+      <title>File: 12,
+             Errors: 1,
              Warnings: 0,
              Infos: 0
       </title>
@@ -44,20 +44,6 @@ under the License.
             </tr>
           </thead>
           <tbody>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#shakki.shakki.logiikka.Main.java">shakki/shakki/logiikka/Main.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#shakki.shakki.logiikka.nappulat.Kuningatar.java">shakki/shakki/logiikka/nappulat/Kuningatar.java</a>
@@ -116,7 +102,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#shakki.shakki.logiikka.Nappula.java">shakki/shakki/logiikka/Nappula.java</a>
+                  <a href="${project.url}/checkstyle.html#shakki.shakki.logiikka.nappulat.Lahetti.java">shakki/shakki/logiikka/nappulat/Lahetti.java</a>
                 </td>
                 <td>
                   0
@@ -130,7 +116,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#shakki.shakki.logiikka.nappulat.Lahetti.java">shakki/shakki/logiikka/nappulat/Lahetti.java</a>
+                  <a href="${project.url}/checkstyle.html#shakki.shakki.logiikka.Logiikka.java">shakki/shakki/logiikka/Logiikka.java</a>
                 </td>
                 <td>
                   0
@@ -158,7 +144,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#shakki.shakki.logiikka.NappulanLiikuttamisLogiikka.java">shakki/shakki/logiikka/NappulanLiikuttamisLogiikka.java</a>
+                  <a href="${project.url}/checkstyle.html#shakki.shakki.main.Main.java">shakki/shakki/main/Main.java</a>
                 </td>
                 <td>
                   0
@@ -172,7 +158,35 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#shakki.shakki.logiikka.NappulanLiikuttamisLogiikka.java">shakki/shakki/logiikka/NappulanLiikuttamisLogiikka.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#shakki.shakki.logiikka.Pelilauta.java">shakki/shakki/logiikka/Pelilauta.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#shakki.shakki.logiikka.nappulat.Nappula.java">shakki/shakki/logiikka/nappulat/Nappula.java</a>
                 </td>
                 <td>
                   0
