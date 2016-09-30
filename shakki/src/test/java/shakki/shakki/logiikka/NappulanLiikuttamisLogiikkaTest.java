@@ -18,29 +18,32 @@ import static org.junit.Assert.*;
  */
 public class NappulanLiikuttamisLogiikkaTest {
     
-    Pelilauta lauta;
+    Logiikka logiikka;
     
     public NappulanLiikuttamisLogiikkaTest() {
         
-        lauta = new Pelilauta();
+        logiikka = new Logiikka(new Pelilauta());
     }
     
     @Test
     public void tarkistaOnkoMahdollinenToimiiOikein1() {
         
-        lauta.alustaPelilauta();
+        logiikka.alustaPelilauta();
         
-        lauta.poistaNappula(1, 7);
-        lauta.poistaNappula(6, 7);
+        logiikka.poistaNappula(1, 7);
+        logiikka.poistaNappula(6, 7);
         
-        lauta.liikutaNappulaa(7, 7, 3, 7);
-        assertEquals(null, lauta.annaRuudussaOlevaNappula(7, 7));
-        assertEquals(Torni.class, lauta.annaRuudussaOlevaNappula(3, 7).getClass());
+        logiikka.vaihdaPeliVuoroa();
         
-        lauta.liikutaNappulaa(0, 7, 4, 7);
-        assertEquals(null, lauta.annaRuudussaOlevaNappula(4, 7));
-        assertEquals(Torni.class, lauta.annaRuudussaOlevaNappula(0, 7).getClass());
+        logiikka.liikutaNappulaa(7, 7, 3, 7);
+        assertEquals(null, logiikka.haeRuudussaOlevaNappula(7, 7));
+        assertEquals(Torni.class, logiikka.haeRuudussaOlevaNappula(3, 7).getClass());
+        
+        logiikka.vaihdaPeliVuoroa();
+        
+        logiikka.liikutaNappulaa(0, 7, 4, 7);
+        assertEquals(null, logiikka.haeRuudussaOlevaNappula(4, 7));
+        assertEquals(Torni.class, logiikka.haeRuudussaOlevaNappula(0, 7).getClass());
         
     }
-    
 }

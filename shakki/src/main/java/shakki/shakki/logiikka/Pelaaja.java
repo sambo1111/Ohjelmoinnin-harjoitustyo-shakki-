@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package shakki.shakki.logiikka;
 import shakki.shakki.logiikka.nappulat.*;
 /**
- *
- * @author hasasami
+ * Luokka sisältää tiedon pelaajan numerosta, mikä liitetään nappuloihin.
  */
 public class Pelaaja {
     

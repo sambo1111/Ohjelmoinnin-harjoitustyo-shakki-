@@ -1,13 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package shakki.shakki.logiikka;
+
+import shakki.shakki.logiikka.nappulat.Nappula;
 import shakki.shakki.logiikka.nappulat.*;
+
 /**
- *
- * @author hasasami
+ * Sisältää tiedon pelilaudan tilasta sekä tarjoaa metodit ruutujen
+ * päivittämiseen ja nappuloiden poistamiseen.
  */
 public class Pelilauta {
 
@@ -25,10 +23,14 @@ public class Pelilauta {
 
     }
 
+    /**
+     * Metodi alustaa pelilaudan eli lisää nappulat niiden aloituspaikoilleen.
+     */
+    
     public void alustaPelilauta() {
-        
+
         pelilauta = new Nappula[8][8];
-        
+
         pelilauta[0][0] = new Torni(pelaaja1);
         pelilauta[0][1] = new Hevonen(pelaaja1);
         pelilauta[0][2] = new Lahetti(pelaaja1);
@@ -57,62 +59,46 @@ public class Pelilauta {
             j++;
 
         }
-
-    }
-
-    public boolean[][] liikutaNappulaa(int alkuRivi, int alkuSarake, int loppuRivi, int loppuSarake) {
-
-        boolean[][] mahdollisetSiirrot = new boolean[8][8];
-
-        if (alkuRivi <= 7 && alkuRivi >= 0 && alkuSarake <= 7 && alkuSarake >= 0) {
-
-            Nappula liikutettava = pelilauta[alkuRivi][alkuSarake];
-            mahdollisetSiirrot = logiikka.naytaMahdollisetSiirrot(pelilauta, liikutettava, alkuRivi, alkuSarake);
-
-            if (loppuRivi <= 7 && loppuRivi >= 0 && loppuSarake <= 7 && loppuSarake >= 0) {
-
-                if (mahdollisetSiirrot[loppuRivi][loppuSarake] == true) {
-                    
-                    pelilauta[loppuRivi][loppuSarake] = liikutettava;
-                    poistaNappula(alkuRivi, alkuSarake);
-
-                }
-            }
-        }
-        return mahdollisetSiirrot;
     }
 
     public Nappula[][] getPelilauta() {
 
         return this.pelilauta;
     }
-    
+
     public void poistaNappula(int rivi, int sarake) {
-        
+
         pelilauta[rivi][sarake] = null;
-        
+
     }
-    
+
     public Nappula annaRuudussaOlevaNappula(int rivi, int sarake) {
-        
+
         return pelilauta[rivi][sarake];
-        
+
     }
+
+    /**
+     * Metodi siirtää nappulan pelilaudalla paikasta toiseen. Ei sisällä siirron validoimiseen liittyvää logiikkaa.
+     * 
+     * @param alkuRivi nappulan tämänhetkinen rivi laudalla.
+     * @param alkuSarake nappulan tämänhetkinen sarake laudalla.
+     * @param loppuRivi rivi johon nappula halutaan siirtää.
+     * @param loppuSarake sarake johon nappula halutaan siirtää.
+     */
     
-    //Testejä varten oleva metodi
     public void siirraNappulaVapaasti(int alkuRivi, int alkuSarake, int loppuRivi, int loppuSarake) {
-        
+
         Nappula nappula = null;
-        
+
         if (pelilauta[alkuRivi][alkuSarake] != null) {
-            
+
             nappula = pelilauta[alkuRivi][alkuSarake];
-            
+            poistaNappula(alkuRivi, alkuSarake);
+            pelilauta[loppuRivi][loppuSarake] = nappula;
+
         }
-        
-        poistaNappula(alkuRivi, alkuSarake);
-        pelilauta[loppuRivi][loppuSarake] = nappula;
-        
+
     }
 
 }

@@ -1,41 +1,45 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package shakki.shakki.logiikka.nappulat;
+
 import shakki.shakki.logiikka.*;
+
 /**
- *
- * @author hasasami
+ * Nappula-rajapinnan toteuttava luokka.
  */
 public class Sotilas implements Nappula {
-    
+
     private Pelaaja pelaaja;
     private int siirrot;
-    
+
     public Sotilas(Pelaaja pelaaja) {
-        
+
         this.pelaaja = pelaaja;
         siirrot = 0;
-        
+
     }
-    
+
     public Pelaaja getPelaaja() {
-        
+
         return pelaaja;
-        
+
     }
-    
+
     public void kasvataSiirtojenLkm() {
-        
+
         siirrot++;
-        
+
     }
+
+    /**
+     * Palauttaa sotilaan siirtojen määrän.
+     * Siirtojen määrää on pidettävä yllä sotilailla, jotta tiedetään milloin sotilas voi liikkua kaksi ja milloin yksi ruutua.
+     * Sotilashan voi liikkua ensimmäisellä siirrollaan kaksi ruutua, muuten yhden.
+     *
+     * @return sotilaan siirtojen lkm.
+     */
     
     public int getSiirrot() {
-        
+
         return siirrot;
     }
-    
+
 }
