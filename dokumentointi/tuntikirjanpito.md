@@ -9,5 +9,7 @@ Päivä | Tunnit | Kuvaus
 20.09 | 4h | Logiikan viimeistely, refaktorointi ja testien luominen
 22.09 | 1.5h | Logiikan viimeistely ja testien luominen
 29.09 | 4h | Refaktorointi ja käyttöliittymän suunnittelu
-29.09 | 4h | Refaktorointi ja javadocin tekeminen
+30.09 | 4h | Refaktorointi ja javadocin tekeminen
+01.10 | 5h | Käyttöliittymän tekeminen ja suunnittelu
+04.10 | 3.5h | Käyttöliittymän tekeminen
 ... | ... | ...
