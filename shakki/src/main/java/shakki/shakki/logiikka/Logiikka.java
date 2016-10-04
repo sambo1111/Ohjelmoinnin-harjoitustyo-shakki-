@@ -71,6 +71,7 @@ public class Logiikka {
 
         if (valitunNappulanMahdollisetSiirrot[loppuRivi][loppuSarake]) {
 
+            pelilauta.annaRuudussaOlevaNappula(alkuRivi, alkuSarake).kasvataSiirtojenLkm();
             pelilauta.siirraNappulaVapaasti(alkuRivi, alkuSarake, loppuRivi, loppuSarake);
             vaihdaPeliVuoroa();
             return true;

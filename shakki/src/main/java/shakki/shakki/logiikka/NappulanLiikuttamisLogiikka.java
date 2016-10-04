@@ -4,21 +4,25 @@ import shakki.shakki.logiikka.nappulat.Nappula;
 import shakki.shakki.logiikka.nappulat.*;
 
 /**
- * Luokan tehtävä on näyttää nappuloiden mahdollisten siirtojen paikat pelilaudalla.
+ * Luokan tehtävä on näyttää nappuloiden mahdollisten siirtojen paikat
+ * pelilaudalla.
  */
 public class NappulanLiikuttamisLogiikka {
 
     private boolean[][] mahdollisetSiirrot;
 
     /**
-     * Metodi kertoo mihin ruutuihin tietyllä nappulalla voi siirtyä nappulan tämähetkisestä paikasta.
+     * Metodi kertoo mihin ruutuihin tietyllä nappulalla voi siirtyä nappulan
+     * tämähetkisestä paikasta.
      *
      * @param pelilauta tämänhetkinen pelilaudan tilanne.
-     * @param nappula nappula, jonka mahdolliset siirtopaikat halutaan selvittää.
+     * @param nappula nappula, jonka mahdolliset siirtopaikat halutaan
+     * selvittää.
      * @param rivi rivi, jossa nappula on tällä hetkellä.
      * @param sarake sarake, jossa nappula on tällä hetkellä.
-     * 
-     * @return boolean-taulukko, joka vastaa shakkilaudan ruutuja, joihin voi tai ei voi siirtää kyseistä nappulaa.
+     *
+     * @return boolean-taulukko, joka vastaa shakkilaudan ruutuja, joihin voi
+     * tai ei voi siirtää kyseistä nappulaa.
      */
     public boolean[][] naytaMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
 
@@ -60,18 +64,20 @@ public class NappulanLiikuttamisLogiikka {
         return mahdollisetSiirrot;
 
     }
-    
+
     /**
      * Metodi tarkistaa voiko tiettyyn ruutuun siirtyä tietyllä nappulalla.
      *
      * @param rivi rivi, jolle halutaan selvittää tarkistaa voiko siihen siirtyä
-     * @param sarake sarake, jolle halutaan selvittää tarkistaa voiko siihen siirtyä
+     * @param sarake sarake, jolle halutaan selvittää tarkistaa voiko siihen
+     * siirtyä
      * @param pelilauta tämänhetkinen pelilaudan tilanne.
-     * @param nappula nappula, jonka mahdolliset siirtopaikat halutaan selvittää.
-     * 
-     * @return boolean-arvo, joka kertoo voiko kysyttyyn ruutuun siirtyä kyseisellä nappulalla.
+     * @param nappula nappula, jonka mahdolliset siirtopaikat halutaan
+     * selvittää.
+     *
+     * @return boolean-arvo, joka kertoo voiko kysyttyyn ruutuun siirtyä
+     * kyseisellä nappulalla.
      */
-    
     private boolean tarkistaOnkoMahdollinen(int rivi, int sarake, Nappula[][] pelilauta, Nappula nappula) {
 
         if (rivi <= 7 && rivi >= 0 && sarake <= 7 && sarake >= 0) {
@@ -89,6 +95,21 @@ public class NappulanLiikuttamisLogiikka {
             }
         }
         return false;
+    }
+
+    private void tarkistaVoikoSotilasSyoda(int rivi, int sarake, Nappula[][] pelilauta, Nappula nappula) {
+
+        if (rivi <= 7 && rivi >= 0 && sarake <= 7 && sarake >= 0) {
+
+            if (pelilauta[rivi][sarake] != null) {
+
+                if (pelilauta[rivi][sarake].getPelaaja().getId() != nappula.getPelaaja().getId()) {
+
+                    mahdollisetSiirrot[rivi][sarake] = true;
+
+                }
+            }
+        }
     }
 
     public void naytaTorninMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
@@ -147,28 +168,28 @@ public class NappulanLiikuttamisLogiikka {
     public void naytaPelaajanYksiSotilaanMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
 
         tarkistaOnkoMahdollinen(rivi + 1, sarake, pelilauta, nappula);
-        tarkistaOnkoMahdollinen(rivi, sarake + 1, pelilauta, nappula);
-        tarkistaOnkoMahdollinen(rivi, sarake - 1, pelilauta, nappula);
+        tarkistaVoikoSotilasSyoda(rivi + 1, sarake + 1, pelilauta, nappula);
+        tarkistaVoikoSotilasSyoda(rivi + 1, sarake - 1, pelilauta, nappula);
 
         if (nappula.getSiirrot() < 1) {
 
             tarkistaOnkoMahdollinen(rivi + 2, sarake, pelilauta, nappula);
         }
-        nappula.kasvataSiirtojenLkm();
+        
 
     }
 
     public void naytaPelaajanKaksiSotilaanMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
 
         tarkistaOnkoMahdollinen(rivi - 1, sarake, pelilauta, nappula);
-        tarkistaOnkoMahdollinen(rivi, sarake + 1, pelilauta, nappula);
-        tarkistaOnkoMahdollinen(rivi, sarake - 1, pelilauta, nappula);
+        tarkistaVoikoSotilasSyoda(rivi - 1, sarake - 1, pelilauta, nappula);
+        tarkistaVoikoSotilasSyoda(rivi - 1, sarake + 1, pelilauta, nappula);
 
         if (nappula.getSiirrot() < 1) {
 
             tarkistaOnkoMahdollinen(rivi - 2, sarake, pelilauta, nappula);
         }
-        nappula.kasvataSiirtojenLkm();
+        
     }
 
     public void naytaLahetinMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
@@ -264,27 +285,27 @@ public class NappulanLiikuttamisLogiikka {
         naytaKuninkaanMahdollisetSiirrotSivuille(pelilauta, nappula, rivi, sarake);
         naytaKuninkaanMahdollisetSiirrotViistosti(pelilauta, nappula, rivi, sarake);
     }
-    
+
     private void naytaKuninkaanMahdollisetSiirrotYlosJaAlas(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
-        
+
         tarkistaOnkoMahdollinen(rivi + 1, sarake, pelilauta, nappula);
         tarkistaOnkoMahdollinen(rivi - 1, sarake, pelilauta, nappula);
-        
+
     }
-    
+
     private void naytaKuninkaanMahdollisetSiirrotSivuille(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
-        
+
         tarkistaOnkoMahdollinen(rivi, sarake - 1, pelilauta, nappula);
         tarkistaOnkoMahdollinen(rivi, sarake + 1, pelilauta, nappula);
-        
+
     }
-    
+
     private void naytaKuninkaanMahdollisetSiirrotViistosti(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
-        
+
         tarkistaOnkoMahdollinen(rivi - 1, sarake + 1, pelilauta, nappula);
         tarkistaOnkoMahdollinen(rivi - 1, sarake - 1, pelilauta, nappula);
         tarkistaOnkoMahdollinen(rivi + 1, sarake + 1, pelilauta, nappula);
         tarkistaOnkoMahdollinen(rivi + 1, sarake - 1, pelilauta, nappula);
-        
+
     }
 }

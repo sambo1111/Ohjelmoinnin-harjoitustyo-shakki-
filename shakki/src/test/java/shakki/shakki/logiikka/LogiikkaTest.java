@@ -70,22 +70,72 @@ public class LogiikkaTest {
     }
 
     @Test
-    public void sotilasSyoOikein() {
+    public void sotilasSyoOikein1() {
 
         logiikka.alustaPelilauta();
+        
+        logiikka.liikutaNappulaa(1, 3, 3, 3);
+        
+        assertEquals(Sotilas.class, logiikka.haeRuudussaOlevaNappula(3, 3).getClass());
+        assertEquals(null, logiikka.haeRuudussaOlevaNappula(1, 3));
+        
+        logiikka.liikutaNappulaa(6, 4, 4, 4);
+        
+        assertEquals(Sotilas.class, logiikka.haeRuudussaOlevaNappula(4, 4).getClass());
+        assertEquals(null, logiikka.haeRuudussaOlevaNappula(6, 4));
+        
+        logiikka.liikutaNappulaa(3, 3, 4, 4);
+        
+        assertEquals(Sotilas.class, logiikka.haeRuudussaOlevaNappula(4, 4).getClass());
+        assertEquals(1, logiikka.haeRuudussaOlevaNappula(4, 4).getPelaaja().getId());
+        assertEquals(null, logiikka.haeRuudussaOlevaNappula(3, 3));
+        
+        logiikka.liikutaNappulaa(6, 3, 5, 3);
+        
+        assertEquals(Sotilas.class, logiikka.haeRuudussaOlevaNappula(5, 3).getClass());
+        assertEquals(null, logiikka.haeRuudussaOlevaNappula(6, 3));
+        
+        logiikka.liikutaNappulaa(4, 4, 5, 3);
+        
+        assertEquals(Sotilas.class, logiikka.haeRuudussaOlevaNappula(5, 3).getClass());
+        assertEquals(1, logiikka.haeRuudussaOlevaNappula(5, 3).getPelaaja().getId());
+        assertEquals(null, logiikka.haeRuudussaOlevaNappula(4, 4));
+        
+    }
+    
+    @Test
+    public void sotilasSyoOikein2() {
 
-        logiikka.liikutaNappulaa(1, 1, 3, 1);
-        logiikka.liikutaNappulaa(6, 1, 4, 1);
-
-        logiikka.liikutaNappulaa(3, 1, 4, 1);
+        logiikka.alustaPelilauta();
+        
+        logiikka.liikutaNappulaa(1, 3, 3, 3);
+        
+        assertEquals(Sotilas.class, logiikka.haeRuudussaOlevaNappula(3, 3).getClass());
+        assertEquals(null, logiikka.haeRuudussaOlevaNappula(1, 3));
+        
+        logiikka.liikutaNappulaa(6, 4, 4, 4);
+        
+        assertEquals(Sotilas.class, logiikka.haeRuudussaOlevaNappula(4, 4).getClass());
+        assertEquals(null, logiikka.haeRuudussaOlevaNappula(6, 4));
+        
         logiikka.vaihdaPeliVuoroa();
-        logiikka.liikutaNappulaa(4, 1, 5, 1);
+        
+        logiikka.liikutaNappulaa(4, 4, 3, 3);
+        
+        assertEquals(Sotilas.class, logiikka.haeRuudussaOlevaNappula(3, 3).getClass());
+        assertEquals(2, logiikka.haeRuudussaOlevaNappula(3, 3).getPelaaja().getId());
+        assertEquals(null, logiikka.haeRuudussaOlevaNappula(4, 4));
 
-        assertEquals(null, logiikka.haeRuudussaOlevaNappula(4, 1));
-        assertEquals(null, logiikka.haeRuudussaOlevaNappula(3, 1));
-
-        assertEquals(Sotilas.class, logiikka.haeRuudussaOlevaNappula(5, 1).getClass());
-        assertEquals(1, logiikka.haeRuudussaOlevaNappula(5, 1).getPelaaja().getId());
+        logiikka.liikutaNappulaa(1, 4, 2, 4);
+        
+        assertEquals(Sotilas.class, logiikka.haeRuudussaOlevaNappula(2, 4).getClass());
+        assertEquals(null, logiikka.haeRuudussaOlevaNappula(1, 4));
+        
+        logiikka.liikutaNappulaa(3, 3, 2, 4);
+        
+        assertEquals(Sotilas.class, logiikka.haeRuudussaOlevaNappula(2, 4).getClass());
+        assertEquals(2, logiikka.haeRuudussaOlevaNappula(2, 4).getPelaaja().getId());
+        assertEquals(null, logiikka.haeRuudussaOlevaNappula(3, 3));
 
     }
 
@@ -105,74 +155,6 @@ public class LogiikkaTest {
         logiikka.liikutaNappulaa(6, 1, 2, 1);
         assertEquals(null, logiikka.haeRuudussaOlevaNappula(2, 1));
         assertEquals(Sotilas.class, logiikka.haeRuudussaOlevaNappula(6, 1).getClass());
-
-    }
-
-    @Test
-    public void sotilasLiikkuuOikeinSivuille1() {
-
-        logiikka.alustaPelilauta();
-
-        //Pelaaja 1
-        //Ei voi liikkua sivulle jos vieressä oma nappula
-        Nappula nappula = logiikka.haeRuudussaOlevaNappula(1, 1);
-        logiikka.liikutaNappulaa(1, 1, 1, 2);
-        assertEquals(Sotilas.class, logiikka.haeRuudussaOlevaNappula(1, 1).getClass());
-        assertEquals(Sotilas.class, logiikka.haeRuudussaOlevaNappula(1, 2).getClass());
-        assertEquals(nappula, logiikka.haeRuudussaOlevaNappula(1, 1));
-
-        //Pelaaja 1
-        //Ei voi liikkua sivulle jos vieressä oma nappula
-        Nappula nappula2 = logiikka.haeRuudussaOlevaNappula(6, 1);
-        logiikka.liikutaNappulaa(6, 1, 6, 0);
-        assertEquals(Sotilas.class, logiikka.haeRuudussaOlevaNappula(6, 1).getClass());
-        assertEquals(Sotilas.class, logiikka.haeRuudussaOlevaNappula(6, 0).getClass());
-        assertEquals(nappula2, logiikka.haeRuudussaOlevaNappula(6, 1));
-
-    }
-
-    @Test
-    public void sotilasLiikkuuOikeinSivuille2() {
-
-        //Pelaaja 1
-        logiikka.alustaPelilauta();
-
-        //Oikea
-        logiikka.liikutaNappulaa(1, 3, 3, 3);
-        
-        logiikka.vaihdaPeliVuoroa();
-        
-        logiikka.liikutaNappulaa(3, 3, 3, 4);
-
-        assertEquals(Sotilas.class, logiikka.haeRuudussaOlevaNappula(3, 4).getClass());
-        assertEquals(null, logiikka.haeRuudussaOlevaNappula(1, 3));
-        assertEquals(null, logiikka.haeRuudussaOlevaNappula(3, 3));
-
-        logiikka.vaihdaPeliVuoroa();
-        
-        //Vasen
-        logiikka.liikutaNappulaa(3, 4, 3, 3);
-        assertEquals(Sotilas.class, logiikka.haeRuudussaOlevaNappula(3, 3).getClass());
-        assertEquals(null, logiikka.haeRuudussaOlevaNappula(3, 4));
-
-        //Pelaaja 2
-        //Oikea
-        logiikka.liikutaNappulaa(6, 6, 4, 6);
-        
-        logiikka.vaihdaPeliVuoroa();
-        
-        logiikka.liikutaNappulaa(4, 6, 4, 7);
-        
-        logiikka.vaihdaPeliVuoroa();
-
-        assertEquals(Sotilas.class, logiikka.haeRuudussaOlevaNappula(4, 7).getClass());
-        assertEquals(null, logiikka.haeRuudussaOlevaNappula(6, 6));
-        assertEquals(null, logiikka.haeRuudussaOlevaNappula(4, 6));
-
-        //Vasen
-        logiikka.liikutaNappulaa(4, 7, 4, 6);
-        assertEquals(Sotilas.class, logiikka.haeRuudussaOlevaNappula(4, 6).getClass());
-        assertEquals(null, logiikka.haeRuudussaOlevaNappula(4, 7));
 
     }
 
