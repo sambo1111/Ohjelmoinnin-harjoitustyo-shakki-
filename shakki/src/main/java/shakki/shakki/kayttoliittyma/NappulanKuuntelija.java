@@ -58,7 +58,6 @@ public class NappulanKuuntelija implements ActionListener {
 
         if (pelilauta[nappi.getRivi()][nappi.getSarake()] != null && edellinenPainettuNappula != null) {
             
-            System.out.println("täällä ollaan");
             syoNappula(edellinenPainettuNappula, nappi);
             
 
@@ -83,11 +82,7 @@ public class NappulanKuuntelija implements ActionListener {
 
             }
 
-        } else {
-
-            System.out.println("täällä ollaan");
-
-        }
+        } 
     }
 
     public boolean onkoJokuRuutuValittu() {
