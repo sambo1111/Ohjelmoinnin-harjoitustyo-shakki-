@@ -52,63 +52,42 @@ public class NappulanKuuntelija implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
 
+        paivitaPelilauta();
         Ruutu nappi = (Ruutu) ae.getSource();
+        Nappula[][] pelilauta = logiikka.annaPelilauta();
 
-        if (edellinenPainettuNappula != null) {
+        if (pelilauta[nappi.getRivi()][nappi.getSarake()] != null && edellinenPainettuNappula != null) {
             
-            edellinenPainettuNappula.setEnabled(true);
-            edellinenPainettuNappula.setValittu(true);
+            System.out.println("täällä ollaan");
+            syoNappula(edellinenPainettuNappula, nappi);
             
-        }
-        
-        //Jos nappia ei olla painettu, näytetään mahdolliset siirtymäpaikat
-        if (nappi.onkoValittu() == false) {
 
-            if (onkoJokuRuutuValittu()) {
-
-                palautaRuutujenValintaFalseksi();
-                paivitaPelilauta();
-            }
-
-            edellinenPainettuNappula = nappi;
-            nappi.setValittu(true);
-            nappi.setEnabled(false);
+        } else if (pelilauta[nappi.getRivi()][nappi.getSarake()] != null) {
 
             logiikka.paivitaValitunNappulanMahdollisetSiirrot(nappi.getRivi(), nappi.getSarake());
             boolean[][] mahdollisetSiirtymat = logiikka.naytaValitunNappulanMahdollisetSiirrot();
 
-            for (int i = 0; i <= 7; i++) {
+            varitaMahdollisetSiirtymaRuudut(mahdollisetSiirtymat);
+            edellinenPainettuNappula = nappi;
 
-                for (int j = 0; j <= 7; j++) {
+        } else if (pelilauta[nappi.getRivi()][nappi.getSarake()] == null && edellinenPainettuNappula != null) {
 
-                    if (mahdollisetSiirtymat[i][j]) {
-
-                        ruudut[i][j].setBackground(Color.yellow);
-
-                    }
-
-                }
-            }
-
-            //Jos nappia ollaan painettu, ja uusi painallus kohdistuu mahdolliseen siirtymäruutuun, niin siirretään nappula siihen    
-        } else {
-
-            Ruutu ruutu = (Ruutu) ae.getSource();
-            palautaRuutujenValintaFalseksi();
-            int ruudunRivi = ruutu.getRivi();
-            int ruudunSarake = ruutu.getSarake();
-
+            logiikka.paivitaValitunNappulanMahdollisetSiirrot(edellinenPainettuNappula.getRivi(), edellinenPainettuNappula.getSarake());
             boolean[][] mahdollisetSiirtymat = logiikka.naytaValitunNappulanMahdollisetSiirrot();
 
-            if (mahdollisetSiirtymat[ruudunRivi][ruudunSarake]) {
+            if (mahdollisetSiirtymat[nappi.getRivi()][nappi.getSarake()]) {
 
-                logiikka.liikutaNappulaa(edellinenPainettuNappula.getRivi(), edellinenPainettuNappula.getSarake(), ruudunRivi, ruudunSarake);
+                logiikka.liikutaNappulaa(edellinenPainettuNappula.getRivi(), edellinenPainettuNappula.getSarake(), nappi.getRivi(), nappi.getSarake());
+                edellinenPainettuNappula = null;
                 paivitaPelilauta();
+
             }
 
-            nappi.setValittu(false);
-        }
+        } else {
 
+            System.out.println("täällä ollaan");
+
+        }
     }
 
     public boolean onkoJokuRuutuValittu() {
@@ -233,6 +212,8 @@ public class NappulanKuuntelija implements ActionListener {
 
             for (int j = 0; j <= 7; j++) {
 
+                ruudut[i][j].setIcon(null);
+
                 if (ruudunVaritys == 1) {
 
                     ruudut[i][j].setBackground(Color.white);
@@ -264,6 +245,33 @@ public class NappulanKuuntelija implements ActionListener {
 
         }
 
+    }
+
+    public void varitaMahdollisetSiirtymaRuudut(boolean[][] siirtymat) {
+
+        for (int i = 0; i <= 7; i++) {
+
+            for (int j = 0; j <= 7; j++) {
+
+                if (siirtymat[i][j]) {
+
+                    ruudut[i][j].setBackground(Color.yellow);
+
+                }
+
+            }
+        }
+
+    }
+    
+    public void syoNappula(Ruutu syova, Ruutu syotava) {
+        
+        logiikka.paivitaValitunNappulanMahdollisetSiirrot(syova.getRivi(), syova.getSarake());
+        logiikka.liikutaNappulaa(syova.getRivi(), syova.getSarake(), syotava.getRivi(), syotava.getSarake());
+        
+        paivitaPelilauta();
+        edellinenPainettuNappula = null;
+        
     }
 
 }
