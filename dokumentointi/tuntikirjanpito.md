@@ -12,4 +12,5 @@ Päivä | Tunnit | Kuvaus
 30.09 | 4h | Refaktorointi ja javadocin tekeminen
 01.10 | 5h | Käyttöliittymän tekeminen ja suunnittelu
 04.10 | 3.5h | Käyttöliittymän tekeminen
+07.10 | 3h | Sekvenssikaavioiden tekeminen, refaktorointi ja luokkakaavion päivittäminen
 ... | ... | ...
