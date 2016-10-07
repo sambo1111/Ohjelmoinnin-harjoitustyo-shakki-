@@ -22,7 +22,7 @@ Kuka tahansa
 
 ### Sekvenssikaaviot:
 
-## Nappulan mahdollisten siirtopaikkojen näyttäminen käyttöliittymässä
+#### Nappulan mahdollisten siirtopaikkojen näyttäminen käyttöliittymässä
 
 ![Sekvenssikaavio1](https://raw.githubusercontent.com/sambo1111/shakki/master/dokumentointi/sekvenssikaavio1.png)
 
