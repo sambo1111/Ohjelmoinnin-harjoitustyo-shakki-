@@ -18,5 +18,15 @@ Kuka tahansa
 
 ### Luokkakaavio:
 
-![Luokkakaavio](https://raw.githubusercontent.com/sambo1111/shakki/master/dokumentointi/luokkakaavio2.JPG)
+![Luokkakaavio](https://raw.githubusercontent.com/sambo1111/shakki/master/dokumentointi/luokkakaavio.png)
+
+### Sekvenssikaaviot:
+
+#### Nappulan mahdollisten siirtopaikkojen näyttäminen käyttöliittymässä:
+
+![Sekvenssikaavio1](https://raw.githubusercontent.com/sambo1111/shakki/master/dokumentointi/sekvenssikaavio1.png)
+
+#### Nappulan siirtäminen:
+
+![Sekvenssikaavio2](https://raw.githubusercontent.com/sambo1111/shakki/master/dokumentointi/sekvenssikaavio2.png)
 
