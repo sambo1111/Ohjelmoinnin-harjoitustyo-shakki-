@@ -112,7 +112,7 @@ public class NappulanLiikuttamisLogiikka {
         }
     }
 
-    public void naytaTorninMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
+    private void naytaTorninMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
 
         naytaTorninMahdollisetSiirrotYlos(pelilauta, nappula, rivi, sarake);
         naytaTorninMahdollisetSiirrotAlas(pelilauta, nappula, rivi, sarake);
@@ -165,7 +165,7 @@ public class NappulanLiikuttamisLogiikka {
         }
     }
 
-    public void naytaPelaajanYksiSotilaanMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
+    private void naytaPelaajanYksiSotilaanMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
 
         tarkistaOnkoMahdollinen(rivi + 1, sarake, pelilauta, nappula);
         tarkistaVoikoSotilasSyoda(rivi + 1, sarake + 1, pelilauta, nappula);
@@ -179,7 +179,7 @@ public class NappulanLiikuttamisLogiikka {
 
     }
 
-    public void naytaPelaajanKaksiSotilaanMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
+    private void naytaPelaajanKaksiSotilaanMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
 
         tarkistaOnkoMahdollinen(rivi - 1, sarake, pelilauta, nappula);
         tarkistaVoikoSotilasSyoda(rivi - 1, sarake - 1, pelilauta, nappula);
@@ -192,7 +192,7 @@ public class NappulanLiikuttamisLogiikka {
         
     }
 
-    public void naytaLahetinMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
+    private void naytaLahetinMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
 
         naytaLahetinMahdollisetSiirrotOikeaanAlaviistoon(pelilauta, nappula, rivi, sarake);
         naytaLahetinMahdollisetSiirrotOikeaanYlaviistoon(pelilauta, nappula, rivi, sarake);
@@ -261,13 +261,13 @@ public class NappulanLiikuttamisLogiikka {
         }
     }
 
-    public void naytaKuningattarenMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
+    private void naytaKuningattarenMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
 
         naytaTorninMahdollisetSiirrot(pelilauta, nappula, rivi, sarake);
         naytaLahetinMahdollisetSiirrot(pelilauta, nappula, rivi, sarake);
     }
 
-    public void naytaHevosenMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
+    private void naytaHevosenMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
 
         tarkistaOnkoMahdollinen(rivi - 2, sarake + 1, pelilauta, nappula);
         tarkistaOnkoMahdollinen(rivi - 2, sarake - 1, pelilauta, nappula);
@@ -279,7 +279,7 @@ public class NappulanLiikuttamisLogiikka {
         tarkistaOnkoMahdollinen(rivi + 1, sarake - 2, pelilauta, nappula);
     }
 
-    public void naytaKuninkaanMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
+    private void naytaKuninkaanMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
 
         naytaKuninkaanMahdollisetSiirrotYlosJaAlas(pelilauta, nappula, rivi, sarake);
         naytaKuninkaanMahdollisetSiirrotSivuille(pelilauta, nappula, rivi, sarake);

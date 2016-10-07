@@ -14,13 +14,11 @@ public class Ruutu extends JButton {
     
     private int rivi;
     private int sarake;
-    private boolean valittu;
     
     public Ruutu(int rivi, int sarake) {
         
         this.rivi = rivi;
         this.sarake = sarake;
-        valittu = false;
         
     }
     
@@ -35,17 +33,5 @@ public class Ruutu extends JButton {
         return sarake;
         
     }
-    
-    public void setValittu(boolean arvo) {
-        
-        valittu = arvo;
-        
-    }
-    
-    public boolean onkoValittu() {
-        
-        return valittu;
-        
-    }
-    
+
 }

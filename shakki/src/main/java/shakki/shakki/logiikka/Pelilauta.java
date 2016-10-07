@@ -10,15 +10,11 @@ import shakki.shakki.logiikka.nappulat.*;
 public class Pelilauta {
 
     private Nappula[][] pelilauta;
-    private Pelaaja pelaaja1;
-    private Pelaaja pelaaja2;
     private NappulanLiikuttamisLogiikka logiikka;
 
     public Pelilauta() {
 
         pelilauta = new Nappula[8][8];
-        pelaaja1 = new Pelaaja(1);
-        pelaaja2 = new Pelaaja(2);
         logiikka = new NappulanLiikuttamisLogiikka();
 
     }
@@ -26,8 +22,10 @@ public class Pelilauta {
     /**
      * Metodi alustaa pelilaudan eli lisää nappulat niiden aloituspaikoilleen.
      */
-    
     public void alustaPelilauta() {
+
+        Pelaaja pelaaja1 = new Pelaaja(1);
+        Pelaaja pelaaja2 = new Pelaaja(2);
 
         pelilauta = new Nappula[8][8];
 
@@ -79,14 +77,14 @@ public class Pelilauta {
     }
 
     /**
-     * Metodi siirtää nappulan pelilaudalla paikasta toiseen. Ei sisällä siirron validoimiseen liittyvää logiikkaa.
-     * 
+     * Metodi siirtää nappulan pelilaudalla paikasta toiseen. Ei sisällä siirron
+     * validoimiseen liittyvää logiikkaa.
+     *
      * @param alkuRivi nappulan tämänhetkinen rivi laudalla.
      * @param alkuSarake nappulan tämänhetkinen sarake laudalla.
      * @param loppuRivi rivi johon nappula halutaan siirtää.
      * @param loppuSarake sarake johon nappula halutaan siirtää.
      */
-    
     public void siirraNappulaVapaasti(int alkuRivi, int alkuSarake, int loppuRivi, int loppuSarake) {
 
         Nappula nappula = null;

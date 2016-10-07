@@ -21,23 +21,23 @@ public class NappulanKuuntelija implements ActionListener {
     Ruutu[][] ruudut;
     Logiikka logiikka;
 
-    ImageIcon sotilas_v = new ImageIcon("src/main/resources/images/sotilas_valkoinen.png");
-    ImageIcon sotilas_m = new ImageIcon("src/main/resources/images/sotilas_musta.png");
+    ImageIcon sotilasValkoinen = new ImageIcon("src/main/resources/images/sotilas_valkoinen.png");
+    ImageIcon sotilasMusta = new ImageIcon("src/main/resources/images/sotilas_musta.png");
 
-    ImageIcon hevonen_v = new ImageIcon("src/main/resources/images/hevonen_valkoinen.png");
-    ImageIcon hevonen_m = new ImageIcon("src/main/resources/images/hevonen_musta.png");
+    ImageIcon hevonenValkoinen = new ImageIcon("src/main/resources/images/hevonen_valkoinen.png");
+    ImageIcon hevonenMusta = new ImageIcon("src/main/resources/images/hevonen_musta.png");
 
-    ImageIcon torni_v = new ImageIcon("src/main/resources/images/torni_valkoinen.png");
-    ImageIcon torni_m = new ImageIcon("src/main/resources/images/torni_musta.png");
+    ImageIcon torniValkoinen = new ImageIcon("src/main/resources/images/torni_valkoinen.png");
+    ImageIcon torniMusta = new ImageIcon("src/main/resources/images/torni_musta.png");
 
-    ImageIcon kuningas_v = new ImageIcon("src/main/resources/images/kuningas_valkoinen.png");
-    ImageIcon kuningas_m = new ImageIcon("src/main/resources/images/kuningas_musta.png");
+    ImageIcon kuningasValkoinen = new ImageIcon("src/main/resources/images/kuningas_valkoinen.png");
+    ImageIcon kuningasMusta = new ImageIcon("src/main/resources/images/kuningas_musta.png");
 
-    ImageIcon kuningatar_v = new ImageIcon("src/main/resources/images/kuningatar_valkoinen.png");
-    ImageIcon kuningatar_m = new ImageIcon("src/main/resources/images/kuningatar_musta.png");
+    ImageIcon kuningatarValkoinen = new ImageIcon("src/main/resources/images/kuningatar_valkoinen.png");
+    ImageIcon kuningatarMusta = new ImageIcon("src/main/resources/images/kuningatar_musta.png");
 
-    ImageIcon lahetti_v = new ImageIcon("src/main/resources/images/lahetti_valkoinen.png");
-    ImageIcon lahetti_m = new ImageIcon("src/main/resources/images/lahetti_musta.png");
+    ImageIcon lahettiValkoinen = new ImageIcon("src/main/resources/images/lahetti_valkoinen.png");
+    ImageIcon lahettiMusta = new ImageIcon("src/main/resources/images/lahetti_musta.png");
 
     Ruutu edellinenPainettuNappula;
 
@@ -57,9 +57,8 @@ public class NappulanKuuntelija implements ActionListener {
         Nappula[][] pelilauta = logiikka.annaPelilauta();
 
         if (pelilauta[nappi.getRivi()][nappi.getSarake()] != null && edellinenPainettuNappula != null) {
-            
+
             syoNappula(edellinenPainettuNappula, nappi);
-            
 
         } else if (pelilauta[nappi.getRivi()][nappi.getSarake()] != null) {
 
@@ -82,27 +81,7 @@ public class NappulanKuuntelija implements ActionListener {
 
             }
 
-        } 
-    }
-
-    public boolean onkoJokuRuutuValittu() {
-
-        for (int i = 0; i <= 7; i++) {
-
-            for (int j = 0; j <= 7; j++) {
-
-                if (ruudut[i][j].onkoValittu() == true) {
-
-                    return true;
-
-                }
-
-            }
-
         }
-
-        return false;
-
     }
 
     public void paivitaPelilauta() {
@@ -123,11 +102,11 @@ public class NappulanKuuntelija implements ActionListener {
 
                         if (nappula.getPelaaja().getId() == 1) {
 
-                            ruudut[i][j].setIcon(sotilas_v);
+                            ruudut[i][j].setIcon(sotilasValkoinen);
 
                         } else {
 
-                            ruudut[i][j].setIcon(sotilas_m);
+                            ruudut[i][j].setIcon(sotilasMusta);
 
                         }
 
@@ -135,11 +114,11 @@ public class NappulanKuuntelija implements ActionListener {
 
                         if (nappula.getPelaaja().getId() == 1) {
 
-                            ruudut[i][j].setIcon(torni_v);
+                            ruudut[i][j].setIcon(torniValkoinen);
 
                         } else {
 
-                            ruudut[i][j].setIcon(torni_m);
+                            ruudut[i][j].setIcon(torniMusta);
 
                         }
 
@@ -147,11 +126,11 @@ public class NappulanKuuntelija implements ActionListener {
 
                         if (nappula.getPelaaja().getId() == 1) {
 
-                            ruudut[i][j].setIcon(lahetti_v);
+                            ruudut[i][j].setIcon(lahettiValkoinen);
 
                         } else {
 
-                            ruudut[i][j].setIcon(lahetti_m);
+                            ruudut[i][j].setIcon(lahettiMusta);
 
                         }
 
@@ -159,11 +138,11 @@ public class NappulanKuuntelija implements ActionListener {
 
                         if (nappula.getPelaaja().getId() == 1) {
 
-                            ruudut[i][j].setIcon(hevonen_v);
+                            ruudut[i][j].setIcon(hevonenValkoinen);
 
                         } else {
 
-                            ruudut[i][j].setIcon(hevonen_m);
+                            ruudut[i][j].setIcon(hevonenMusta);
 
                         }
 
@@ -171,11 +150,11 @@ public class NappulanKuuntelija implements ActionListener {
 
                         if (nappula.getPelaaja().getId() == 1) {
 
-                            ruudut[i][j].setIcon(kuningas_v);
+                            ruudut[i][j].setIcon(kuningasValkoinen);
 
                         } else {
 
-                            ruudut[i][j].setIcon(kuningas_m);
+                            ruudut[i][j].setIcon(kuningasMusta);
 
                         }
 
@@ -183,11 +162,11 @@ public class NappulanKuuntelija implements ActionListener {
 
                         if (nappula.getPelaaja().getId() == 1) {
 
-                            ruudut[i][j].setIcon(kuningatar_v);
+                            ruudut[i][j].setIcon(kuningatarValkoinen);
 
                         } else {
 
-                            ruudut[i][j].setIcon(kuningatar_m);
+                            ruudut[i][j].setIcon(kuningatarMusta);
 
                         }
 
@@ -228,19 +207,6 @@ public class NappulanKuuntelija implements ActionListener {
 
     }
 
-    public void palautaRuutujenValintaFalseksi() {
-
-        for (int i = 0; i <= 7; i++) {
-
-            for (int j = 0; j <= 7; j++) {
-
-                ruudut[i][j].setValittu(false);
-
-            }
-
-        }
-
-    }
 
     public void varitaMahdollisetSiirtymaRuudut(boolean[][] siirtymat) {
 
@@ -258,15 +224,30 @@ public class NappulanKuuntelija implements ActionListener {
         }
 
     }
-    
+
     public void syoNappula(Ruutu syova, Ruutu syotava) {
-        
+
         logiikka.paivitaValitunNappulanMahdollisetSiirrot(syova.getRivi(), syova.getSarake());
         logiikka.liikutaNappulaa(syova.getRivi(), syova.getSarake(), syotava.getRivi(), syotava.getSarake());
-        
+
         paivitaPelilauta();
         edellinenPainettuNappula = null;
-        
+
+    }
+
+    public boolean painettiinkoSamaaNappulaaUudestaan(Ruutu edellinen, Ruutu nykyinen) {
+
+        if (edellinen != null && nykyinen != null) {
+
+            if ((edellinen.getRivi() == nykyinen.getRivi()) && (edellinen.getSarake() == nykyinen.getSarake())) {
+
+                return true;
+
+            }
+        }
+
+        return false;
+
     }
 
 }

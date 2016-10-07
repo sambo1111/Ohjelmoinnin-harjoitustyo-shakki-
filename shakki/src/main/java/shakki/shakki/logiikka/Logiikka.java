@@ -98,6 +98,10 @@ public class Logiikka {
         return false;
     }
 
+    /**
+     * Metodi vaihtaa pelivuoroa. Esim jos pelivuoro on 1, niin 3 - 1 = 2 eli vaihdetaan pelaajan 2 vuoroon.
+     */
+    
     public void vaihdaPeliVuoroa() {
 
         peliVuoro = 3 - peliVuoro;
@@ -110,6 +114,10 @@ public class Logiikka {
 
     }
 
+    /**
+     * Metodi palauttaa Pelilauta-luokan shakkilaudan 2d-taulukkona.
+     */
+    
     public Nappula[][] annaPelilauta() {
 
         return pelilauta.getPelilauta();
@@ -144,12 +152,6 @@ public class Logiikka {
         return false;
     }
 
-    public void poistaNappulaLaudalta(int rivi, int sarake) {
-
-        pelilauta.poistaNappula(rivi, sarake);
-
-    }
-
     public Nappula haeRuudussaOlevaNappula(int rivi, int sarake) {
 
         return pelilauta.annaRuudussaOlevaNappula(rivi, sarake);
@@ -161,6 +163,16 @@ public class Logiikka {
         pelilauta.poistaNappula(rivi, sarake);
     }
 
+    /**
+     * Metodi siirtää nappula-olion tietystä pelilaudan taulukon kohdasta toiseen kohtaan kutsumalla Pelilauta-luokan saman nimistä metodia.
+     *
+     * @param alkurivi rivi, jossa siirrettävä nappula on tällä hetkellä.
+     * @param alkusarake sarake, jossa siirrettävä nappula on tällä hetkellä.
+     * @param loppurivi rivi, johon nappula halutaan siirtää.
+     * @param loppusarake sarake, johon nappula halutaan siirtää.
+     * 
+     */
+    
     public void siirraNappulaVapaasti(int alkurivi, int alkusarake, int loppurivi, int loppusarake) {
 
         pelilauta.siirraNappulaVapaasti(alkurivi, alkusarake, loppurivi, loppusarake);
