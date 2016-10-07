@@ -20,3 +20,9 @@ Kuka tahansa
 
 ![Luokkakaavio](https://raw.githubusercontent.com/sambo1111/shakki/master/dokumentointi/luokkakaavio.png)
 
+### Sekvenssikaaviot:
+
+## Nappulan mahdollisten siirtopaikkojen näyttäminen käyttöliittymässä
+
+![Sekvenssikaavio1](https://raw.githubusercontent.com/sambo1111/shakki/master/dokumentointi/sekvenssikaavio1.png)
+
