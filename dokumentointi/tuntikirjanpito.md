@@ -13,4 +13,6 @@ Päivä | Tunnit | Kuvaus
 01.10 | 5h | Käyttöliittymän tekeminen ja suunnittelu
 04.10 | 3.5h | Käyttöliittymän tekeminen
 07.10 | 3h | Sekvenssikaavioiden tekeminen, refaktorointi ja luokkakaavion päivittäminen
+11.10 | 4h | Pientä refaktorointia ja käyttöliittymän viimeistelyä
+13.10 | 3h | Bugien korjausta ja käyttöliittymän viimeistelyä
 ... | ... | ...
