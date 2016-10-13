@@ -33,5 +33,7 @@ public class Ruutu extends JButton {
         return sarake;
         
     }
+    
+    
 
 }

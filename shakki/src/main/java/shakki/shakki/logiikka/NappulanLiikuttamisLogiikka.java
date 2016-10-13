@@ -167,11 +167,18 @@ public class NappulanLiikuttamisLogiikka {
 
     private void naytaPelaajanYksiSotilaanMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
 
-        tarkistaOnkoMahdollinen(rivi + 1, sarake, pelilauta, nappula);
+        boolean onkoEnsimmainenSiirtoMahdollinen = false;
+        
+        if (pelilauta[rivi + 1][sarake] == null) {
+            
+            onkoEnsimmainenSiirtoMahdollinen = tarkistaOnkoMahdollinen(rivi + 1, sarake, pelilauta, nappula);
+            
+        }
+        
         tarkistaVoikoSotilasSyoda(rivi + 1, sarake + 1, pelilauta, nappula);
         tarkistaVoikoSotilasSyoda(rivi + 1, sarake - 1, pelilauta, nappula);
 
-        if (nappula.getSiirrot() < 1) {
+        if (nappula.getSiirrot() < 1 && onkoEnsimmainenSiirtoMahdollinen) {
 
             tarkistaOnkoMahdollinen(rivi + 2, sarake, pelilauta, nappula);
         }
@@ -181,11 +188,18 @@ public class NappulanLiikuttamisLogiikka {
 
     private void naytaPelaajanKaksiSotilaanMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
 
-        tarkistaOnkoMahdollinen(rivi - 1, sarake, pelilauta, nappula);
+        boolean onkoEnsimmainenSiirtoMahdollinen = false;
+        
+        if (pelilauta[rivi - 1][sarake] == null) {
+            
+            onkoEnsimmainenSiirtoMahdollinen = tarkistaOnkoMahdollinen(rivi - 1, sarake, pelilauta, nappula);
+            
+        }
+        
         tarkistaVoikoSotilasSyoda(rivi - 1, sarake - 1, pelilauta, nappula);
         tarkistaVoikoSotilasSyoda(rivi - 1, sarake + 1, pelilauta, nappula);
 
-        if (nappula.getSiirrot() < 1) {
+        if (nappula.getSiirrot() < 1 && onkoEnsimmainenSiirtoMahdollinen) {
 
             tarkistaOnkoMahdollinen(rivi - 2, sarake, pelilauta, nappula);
         }
@@ -269,12 +283,26 @@ public class NappulanLiikuttamisLogiikka {
 
     private void naytaHevosenMahdollisetSiirrot(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
 
+        naytaHevosenMahdollisetSiirrotYlospain(pelilauta, nappula, rivi, sarake);
+        naytaHevosenMahdollisetSiirrotAlaspain(pelilauta, nappula, rivi, sarake);
+        
+    }
+    
+    private void naytaHevosenMahdollisetSiirrotYlospain(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
+        
         tarkistaOnkoMahdollinen(rivi - 2, sarake + 1, pelilauta, nappula);
         tarkistaOnkoMahdollinen(rivi - 2, sarake - 1, pelilauta, nappula);
-        tarkistaOnkoMahdollinen(rivi + 2, sarake + 1, pelilauta, nappula);
-        tarkistaOnkoMahdollinen(rivi + 2, sarake - 1, pelilauta, nappula);
+        
         tarkistaOnkoMahdollinen(rivi - 1, sarake + 2, pelilauta, nappula);
         tarkistaOnkoMahdollinen(rivi - 1, sarake - 2, pelilauta, nappula);
+        
+    }
+    
+    private void naytaHevosenMahdollisetSiirrotAlaspain(Nappula[][] pelilauta, Nappula nappula, int rivi, int sarake) {
+        
+        tarkistaOnkoMahdollinen(rivi + 2, sarake + 1, pelilauta, nappula);
+        tarkistaOnkoMahdollinen(rivi + 2, sarake - 1, pelilauta, nappula);
+        
         tarkistaOnkoMahdollinen(rivi + 1, sarake + 2, pelilauta, nappula);
         tarkistaOnkoMahdollinen(rivi + 1, sarake - 2, pelilauta, nappula);
     }

@@ -29,8 +29,9 @@ public class Kayttoliittyma implements Runnable {
     }
 
     public void run() {
-        frame = new JFrame("Otsikko");
+        frame = new JFrame("Shakki");
         frame.setPreferredSize(new Dimension(700, 700));
+        frame.setResizable(false);
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,11 +43,33 @@ public class Kayttoliittyma implements Runnable {
 
     private void luoKomponentit(Container container) {
 
-        NappulanKuuntelija kuuntelija = new NappulanKuuntelija(ruudut, logiikka);
         container.setLayout(new BorderLayout());
         JLabel alusta = new JLabel();
 
         alusta.setLayout(new GridLayout(8, 8));
+
+        JToolBar tools = new JToolBar();
+        tools.setMargin(new Insets(2,2,2,2));
+
+        JTextField ilmoitusLaatikko = new JTextField("Valkoisen vuoro");
+        ilmoitusLaatikko.setEditable(false);
+        ilmoitusLaatikko.setHorizontalAlignment(JTextField.CENTER);
+        ilmoitusLaatikko.setForeground(Color.blue);
+        
+        //Lisätän uusipeli nappi
+        
+        JButton uusiPeliNappi = new JButton();
+        uusiPeliNappi.addActionListener(new UusiPeliNappulanKuuntelija(ruudut, logiikka, ilmoitusLaatikko));
+        uusiPeliNappi.setText("Uusi Peli");
+        tools.add(uusiPeliNappi);
+        
+        //Lisätään ilmoitusboxi
+        
+        tools.add(ilmoitusLaatikko);
+        
+        container.add(tools, BorderLayout.NORTH);
+        
+        RuutuNappulanKuuntelija kuuntelija = new RuutuNappulanKuuntelija(ruudut, logiikka, ilmoitusLaatikko);
 
         //Kuvat
         ImageIcon sotilasValkoinen = new ImageIcon("src/main/resources/images/sotilas_valkoinen.png");
@@ -76,11 +99,6 @@ public class Kayttoliittyma implements Runnable {
 
                 Ruutu nappi = new Ruutu(i, j);
                 nappi.addActionListener(kuuntelija);
-
-                JToolBar tools = new JToolBar();
-
-                tools.add(new JButton());
-                container.add(tools, BorderLayout.NORTH);
 
                 // Lisätään kuvat ruuduille
                 if (i == 1) {

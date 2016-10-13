@@ -24,13 +24,13 @@ public class Logiikka {
     }
 
     /**
-     * Metodi päivittää valitun nappulan mahdolliset siirtymäpaikat laudalla globaaliin boolean-taulukkoon jatkokäyttöä varten.
+     * Metodi päivittää valitun nappulan mahdolliset siirtymäpaikat laudalla
+     * globaaliin boolean-taulukkoon jatkokäyttöä varten.
      *
      * @param rivi siirrettävän nappulan rivi laudalla.
      * @param sarake siirrettävän nappulan sarake laudalla.
-     * 
+     *
      */
-    
     public void paivitaValitunNappulanMahdollisetSiirrot(int rivi, int sarake) {
 
         valitunNappulanMahdollisetSiirrot = new boolean[8][8];
@@ -61,10 +61,9 @@ public class Logiikka {
      * @param alkuSarake siirrettävän nappulan tämänhetkinen sarake laudalla.
      * @param loppuRivi rivi mihin nappula halutaan siirtää.
      * @param loppuSarake sarake mihin nappula halutaan siirtää.
-     * 
+     *
      * @return boolean-arvo, joka kertoo onnistuiko siirto vai ei.
      */
-    
     public boolean liikutaNappulaa(int alkuRivi, int alkuSarake, int loppuRivi, int loppuSarake) {
 
         paivitaValitunNappulanMahdollisetSiirrot(alkuRivi, alkuSarake);
@@ -80,14 +79,15 @@ public class Logiikka {
     }
 
     /**
-     * Metodi kertoo voiko haluttua nappulaa käyttää tällä pelivuorolla.
-     * Metodi siis tarkistaa vastaako kyseisen nappulan pelaajan numero tämänhetkisen vuoron numeroa.
+     * Metodi kertoo voiko haluttua nappulaa käyttää tällä pelivuorolla. Metodi
+     * siis tarkistaa vastaako kyseisen nappulan pelaajan numero tämänhetkisen
+     * vuoron numeroa.
      *
      * @param nappula nappula, jota halutaan käyttää
-     * 
-     * @return boolean-arvo, joka kertoo voidaanko nappulaa käyttää tämänhetkisessä pelitilanteessa.
+     *
+     * @return boolean-arvo, joka kertoo voidaanko nappulaa käyttää
+     * tämänhetkisessä pelitilanteessa.
      */
-    
     public boolean onkoOikeaPeliVuoro(Nappula nappula) {
 
         if (nappula.getPelaaja().getId() == peliVuoro) {
@@ -99,9 +99,9 @@ public class Logiikka {
     }
 
     /**
-     * Metodi vaihtaa pelivuoroa. Esim jos pelivuoro on 1, niin 3 - 1 = 2 eli vaihdetaan pelaajan 2 vuoroon.
+     * Metodi vaihtaa pelivuoroa. Esim jos pelivuoro on 1, niin 3 - 1 = 2 eli
+     * vaihdetaan pelaajan 2 vuoroon.
      */
-    
     public void vaihdaPeliVuoroa() {
 
         peliVuoro = 3 - peliVuoro;
@@ -110,6 +110,7 @@ public class Logiikka {
 
     public void alustaPelilauta() {
 
+        peliVuoro = 1;
         pelilauta.alustaPelilauta();
 
     }
@@ -117,7 +118,6 @@ public class Logiikka {
     /**
      * Metodi palauttaa Pelilauta-luokan shakkilaudan 2d-taulukkona.
      */
-    
     public Nappula[][] annaPelilauta() {
 
         return pelilauta.getPelilauta();
@@ -125,12 +125,12 @@ public class Logiikka {
 
     /**
      * Metodi tarkistaa ollaanko pelitilanteessa, jossa peli on päättynyt.
-     * Metodi siis tarkistaa, onko molemmat kuninkaat laudalla vai ei.
-     * Tämä toiminnallisuus ei periaatteessa noudata shakin oikeita sääntöjä, joissa pitäisi tarkistaa shakki ja shakkimatti.
-     * 
+     * Metodi siis tarkistaa, onko molemmat kuninkaat laudalla vai ei. Tämä
+     * toiminnallisuus ei periaatteessa noudata shakin oikeita sääntöjä, joissa
+     * pitäisi tarkistaa shakki ja shakkimatti.
+     *
      * @return boolean-arvo, joka kertoo onko peli päättynyt.
      */
-    
     public boolean paattyikoPeli() {
 
         int kuninkaidenLkmLaudalla = 0;
@@ -140,8 +140,12 @@ public class Logiikka {
 
             for (int j = 0; j <= 7; j++) {
 
-                if (lauta[i][j].getClass().equals(Kuningas.class)) {
-                    kuninkaidenLkmLaudalla++;
+                if (lauta[i][j] != null) {
+
+                    if (lauta[i][j].getClass().equals(Kuningas.class)) {
+                        kuninkaidenLkmLaudalla++;
+                    }
+
                 }
             }
         }
@@ -164,25 +168,25 @@ public class Logiikka {
     }
 
     /**
-     * Metodi siirtää nappula-olion tietystä pelilaudan taulukon kohdasta toiseen kohtaan kutsumalla Pelilauta-luokan saman nimistä metodia.
+     * Metodi siirtää nappula-olion tietystä pelilaudan taulukon kohdasta
+     * toiseen kohtaan kutsumalla Pelilauta-luokan saman nimistä metodia.
      *
      * @param alkurivi rivi, jossa siirrettävä nappula on tällä hetkellä.
      * @param alkusarake sarake, jossa siirrettävä nappula on tällä hetkellä.
      * @param loppurivi rivi, johon nappula halutaan siirtää.
      * @param loppusarake sarake, johon nappula halutaan siirtää.
-     * 
+     *
      */
-    
     public void siirraNappulaVapaasti(int alkurivi, int alkusarake, int loppurivi, int loppusarake) {
 
         pelilauta.siirraNappulaVapaasti(alkurivi, alkusarake, loppurivi, loppusarake);
 
     }
-    
+
     public int getPeliVuoro() {
-        
+
         return peliVuoro;
-        
+
     }
 
 }
