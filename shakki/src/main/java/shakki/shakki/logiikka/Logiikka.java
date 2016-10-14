@@ -108,6 +108,9 @@ public class Logiikka {
 
     }
 
+    /**
+     * Metodi kutsuu Pelilauta-luokan samannimistä metodia, joka alustaa pelilaudan nappulat aloituspaikoilleen.
+     */
     public void alustaPelilauta() {
 
         peliVuoro = 1;
@@ -155,13 +158,29 @@ public class Logiikka {
         }
         return false;
     }
+    
 
+    /**
+     * Palauttaa tietyssä ruudussa olevan nappulan.
+     * 
+     * @param rivi rivi, jossa haettava nappula sijaitsee.
+     * @param sarake sarake, jossa haettava nappula sijaitsee.
+     * 
+     * @return [rivi][sarake]-indeksissä oleva nappula-olio pelilaudalla.
+     */
     public Nappula haeRuudussaOlevaNappula(int rivi, int sarake) {
 
         return pelilauta.annaRuudussaOlevaNappula(rivi, sarake);
 
     }
 
+    /**
+     * Poistaa tietyssä ruudussa olevan nappulan pelilaudalta.
+     * 
+     * @param rivi rivi, josta nappula halutaan poistaa.
+     * @param sarake sarake, josta nappula halutaan poistaa.
+     * 
+     */
     public void poistaNappula(int rivi, int sarake) {
 
         pelilauta.poistaNappula(rivi, sarake);

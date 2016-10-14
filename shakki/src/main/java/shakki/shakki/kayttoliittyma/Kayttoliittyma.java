@@ -49,7 +49,7 @@ public class Kayttoliittyma implements Runnable {
         alusta.setLayout(new GridLayout(8, 8));
 
         JToolBar tools = new JToolBar();
-        tools.setMargin(new Insets(2,2,2,2));
+        tools.setMargin(new Insets(2, 2, 2, 2));
 
         JTextField ilmoitusLaatikko = new JTextField("Valkoisen vuoro");
         ilmoitusLaatikko.setEditable(false);
