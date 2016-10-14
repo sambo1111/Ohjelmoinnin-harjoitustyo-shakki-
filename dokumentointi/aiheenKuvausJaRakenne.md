@@ -16,6 +16,23 @@ Kuka tahansa
 - Mahdollisten siirtojen näyttäminen nappulakohtaisesti
 	* Siirtäminen onnistuu vain jos pelaaja valitsee sallitun ruudun
 
+### Käyttöohje:
+
+#### Yleistä:
+Käyttöliittymän yläpalkissa on viestilaatikko, joka kertoo kumman pelaajan vuoro on siirtää nappulaa. Viestilaatikko myös ilmoittaa, kun jompikumpi pelaajista on voittanut pelin.
+
+#### Nappuloiden liikuttaminen:
+Nappulaa klikattaessa käyttöliittymä värittää keltaiseksi ne ruudut mihin klikatulla nappulalla voi liikkua. Jos käyttäjä klikkaa tämän jälkeen keltaisella merkittyä ruutun, siirretään valittu nappula tähän ruutuun. Jos käyttäjä klikkaa jotain muuta ruutua, toiminto peruuntuu ja käyttäjän tulee valita uusi nappula siirrettäväksi.
+
+#### Nappuloiden syöminen:
+Syöminen tapahtuu samalla tavalla kuin liikuttaminen. Siis jos käyttöliittymä näyttää keltaisella ruudun, jossa on vastustajan pelaaja, voidaan tähän ruutuun siirtyä, jolloin vastustajan nappula katoaa pelilaudalta.
+
+#### Pelin voittaminen:
+Pelin voittaminen tapahtuu tässä vaiheessa syömällä vastustajan kuningas. Pelissä ei siis ole shakki -ja shakkimatti tarkistuksia.
+
+#### Uuden pelin aloittaminen:
+Uuden pelin voi aloittaa missä vaiheessa peliä tahansa painamalla käyttöliittymän vasemmassa yläkulmassa olevaa "uusi peli"-nappia, joka alustaa pelilaudan uudelleen.
+
 ### Luokkakaavio:
 
 ![Luokkakaavio](https://raw.githubusercontent.com/sambo1111/shakki/master/dokumentointi/luokkakaavio_uusi.png)
