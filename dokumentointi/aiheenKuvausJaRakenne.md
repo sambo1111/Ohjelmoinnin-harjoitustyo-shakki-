@@ -37,9 +37,11 @@ Uuden pelin voi aloittaa missä vaiheessa peliä tahansa painamalla käyttöliit
 
 #### Käyttöliittymä:
 
-Käyttöliittymä koostuu seuraavista luokista: Kayttoliittyma, RuutuNappulanKuuntelija, UusiPeliNappulanKuuntelija ja KayttoliittymaTyokalut.
+Käyttöliittymä koostuu seuraavista luokista: Kayttoliittyma, RuutuNappulanKuuntelija, UusiPeliNappulanKuuntelija, Ruutu ja KayttoliittymaTyokalut.
 
 Kayttoliittyma-luokka kokoaa käyttöliittymän komponentit ja muodostaa käyttöliittymä-näkymän.
+
+Ruutu-luokka toteuttaa javan oman JButton-luokan eli Ruutu-oliot ovat siis käytännössä käyttöliittymän shakkiruutuja. Ruutu-olioihin on kuitenkin lisätty attribuutit rivi ja sarake, joiden avulla käyttöliittymän ruudut saadaan pelaamaan yhteen logiikan Pelilauta-luokan kanssa.
 
 RuutuNappulanKuuntelija ja UusiPeliNappulanKuuntelija ovat ActionListener-rajapinnan toteuttavia luokkia, eli ne kuuntelevat käyttöliittymän nappuloihin kohdistuvia painalluksia ja suorittavat niihin liittyviä toimintoja käyttäen hyväksi Logiikka-luokkaa.
 
