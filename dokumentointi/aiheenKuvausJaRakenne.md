@@ -22,10 +22,10 @@ Kuka tahansa
 Käyttöliittymän yläpalkissa on viestilaatikko, joka kertoo kumman pelaajan vuoro on siirtää nappulaa. Viestilaatikko myös ilmoittaa, kun jompikumpi pelaajista on voittanut pelin.
 
 #### Nappuloiden liikuttaminen:
-Nappulaa klikattaessa käyttöliittymä värittää keltaiseksi ne ruudut mihin klikatulla nappulalla voi liikkua. Jos käyttäjä klikkaa tämän jälkeen keltaisella merkittyä ruutun, siirretään valittu nappula tähän ruutuun. Jos käyttäjä klikkaa jotain muuta ruutua, toiminto peruuntuu ja käyttäjän tulee valita uusi nappula siirrettäväksi.
+Pelinappulan sisältämää ruutua klikattaessa käyttöliittymä värittää keltaiseksi ne ruudut mihin klikatulla nappulalla voi liikkua. Jos käyttäjä klikkaa tämän jälkeen keltaisella merkittyä ruutun, siirretään valittu nappula tähän ruutuun. Jos käyttäjä klikkaa jotain muuta ruutua, toiminto peruuntuu ja käyttäjän tulee valita uusi nappula siirrettäväksi.
 
 #### Nappuloiden syöminen:
-Syöminen tapahtuu samalla tavalla kuin liikuttaminen. Siis jos käyttöliittymä näyttää keltaisella ruudun, jossa on vastustajan pelaaja, voidaan tähän ruutuun siirtyä, jolloin vastustajan nappula katoaa pelilaudalta.
+Syöminen tapahtuu samalla tavalla kuin liikuttaminen. Siis jos käyttöliittymä näyttää keltaisella ruudun, jossa on vastustajan pelaaja, voidaan tähän ruutuun siirtyä, jolloin vastustajan nappula "syödään" pelilaudalta.
 
 #### Pelin voittaminen:
 Pelin voittaminen tapahtuu tässä vaiheessa syömällä vastustajan kuningas. Pelissä ei siis ole shakki -ja shakkimatti tarkistuksia.
