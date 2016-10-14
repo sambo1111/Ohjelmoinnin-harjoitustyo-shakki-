@@ -33,6 +33,34 @@ Pelin voittaminen tapahtuu tässä vaiheessa syömällä vastustajan kuningas. P
 #### Uuden pelin aloittaminen:
 Uuden pelin voi aloittaa missä vaiheessa peliä tahansa painamalla käyttöliittymän vasemmassa yläkulmassa olevaa "uusi peli"-nappia, joka alustaa pelilaudan uudelleen.
 
+### Rakennekuvaus:
+
+#### Käyttöliittymä:
+
+Käyttöliittymä koostuu seuraavista luokista: Kayttoliittyma, RuutuNappulanKuuntelija, UusiPeliNappulanKuuntelija ja KayttoliittymaTyokalut.
+
+Kayttoliittyma-luokka kokoaa käyttöliittymän komponentit ja muodostaa käyttöliittymä-näkymän.
+
+RuutuNappulanKuuntelija ja UusiPeliNappulanKuuntelija ovat ActionListener-rajapinnan toteuttavia luokkia, eli ne kuuntelevat käyttöliittymän nappuloihin kohdistuvia painalluksia ja suorittavat niihin liittyviä toimintoja käyttäen hyväksi Logiikka-luokkaa.
+
+KayttoliittymaTyokalut-luokka tarjoaa yleisiä käyttöliittymän päivittämiseen liittyviä metodeja, esim. käyttöliittymän shakkiruutujen värityksen ja nappula-ikonien lisäämisen ruutuihin.
+
+
+#### Logiikka:
+
+Ohjelman pelilogiikka koostuu seuraavista luokista: Logiikka, NappulanLiikuttamisLogiikka, Pelilauta, Pelaaja ja rajapinnasta Nappula, jonka toteuttaa shakkipelin eri nappula-oliot.
+
+Pelilauta-luokka sisältää itse shakkilaudan, joka on toteutettu 8x8 taulukkona, joka sisältää Nappula-olioita. Pelilauta luokassa siis tapahtuu pelilaudan alustaminen, nappulan poistaminen taulukosta ja nappulan siirtäminen taulukon indeksistä toiseen. Pelilauta ei kuitenkaan sisällä mitään nappulan liikuttamiseen liittyvää logiikkaa.
+
+Pelaaja-luokka sisältää yksinkertaisuudessaan tiedon siitä, mikä pelaaja on kyseessä (siis. pelaaja1 ja pelaaja2)
+
+Nappula-rajapinnan toteuttavat luokat sisältävät yhteyden pelaaja-luokkaan. Siis nappulat tuntevat pelaajan, mutta pelaaja ei tunne nappulaa.
+
+NappulanLiikuttamisLogiikka sisältää suurimman osan pelin toiminnasta eli nappuloiden siirtomahdollisuuksien generoimisen. Tämän luokan tehtävänä on siis palauttaa valitun nappulan mahdolliset siirtopaikat 8x8 boolean-taulukkona, jossa arvon true sisältämään indeksiin voidaan liikkua pelilaudalla ja falsella ei voida liikkua.
+
+Logiikka-luokka yhdistää kaiken pelilogiikan yhdeksi paketiksi ja toimii eräänlaisena liitoskohtana käyttöliittymän ja pelilogiikan välillä. Se siis tuntee luokat Pelilauta ja NappulanLiikuttamisLogiikka, joiden metodeja kutsutaan, kun käyttöliittymässä painellaan nappuloita. Logiikka-luokka sisältää myös yleistä pelilogiikkaa esim. pelivuorojen vaihtamisen.
+
+
 ### Luokkakaavio:
 
 ![Luokkakaavio](https://raw.githubusercontent.com/sambo1111/shakki/master/dokumentointi/luokkakaavio_uusi.png)
