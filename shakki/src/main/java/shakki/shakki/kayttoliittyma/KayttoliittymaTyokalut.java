@@ -6,6 +6,7 @@
 package shakki.shakki.kayttoliittyma;
 
 import java.awt.Color;
+import java.awt.Font;
 import javax.swing.ImageIcon;
 import shakki.shakki.logiikka.nappulat.*;
 
@@ -56,23 +57,30 @@ public class KayttoliittymaTyokalut {
 
                         if (nappula.getPelaaja().getId() == 1) {
 
-                            ruudut[i][j].setIcon(sotilasValkoinen);
+                            //ruudut[i][j].setIcon(sotilasValkoinen);
+                            ruudut[i][j].setText("\u2659");
+                            ruudut[i][j].setFont(new Font("", Font.PLAIN, 52));
 
                         } else {
 
-                            ruudut[i][j].setIcon(sotilasMusta);
-
+                            //ruudut[i][j].setIcon(sotilasMusta);
+                            ruudut[i][j].setText("\u265F");
+                            ruudut[i][j].setFont(new Font("", Font.PLAIN, 52));
                         }
 
                     } else if (nappula.getClass().equals(Torni.class)) {
 
                         if (nappula.getPelaaja().getId() == 1) {
 
-                            ruudut[i][j].setIcon(torniValkoinen);
+                            //ruudut[i][j].setIcon(torniValkoinen);
+                            ruudut[i][j].setText("\u2656");
+                            ruudut[i][j].setFont(new Font("", Font.PLAIN, 52));
 
                         } else {
 
-                            ruudut[i][j].setIcon(torniMusta);
+                            //ruudut[i][j].setIcon(torniMusta);
+                            ruudut[i][j].setText("\u265C");
+                            ruudut[i][j].setFont(new Font("", Font.PLAIN, 52));
 
                         }
 
@@ -80,11 +88,15 @@ public class KayttoliittymaTyokalut {
 
                         if (nappula.getPelaaja().getId() == 1) {
 
-                            ruudut[i][j].setIcon(lahettiValkoinen);
+                            //ruudut[i][j].setIcon(lahettiValkoinen);
+                            ruudut[i][j].setText("\u2657");
+                            ruudut[i][j].setFont(new Font("", Font.PLAIN, 52));
 
                         } else {
 
-                            ruudut[i][j].setIcon(lahettiMusta);
+                            //ruudut[i][j].setIcon(lahettiMusta);
+                            ruudut[i][j].setText("\u265D");
+                            ruudut[i][j].setFont(new Font("", Font.PLAIN, 52));
 
                         }
 
@@ -92,11 +104,15 @@ public class KayttoliittymaTyokalut {
 
                         if (nappula.getPelaaja().getId() == 1) {
 
-                            ruudut[i][j].setIcon(hevonenValkoinen);
+                            //ruudut[i][j].setIcon(hevonenValkoinen);
+                            ruudut[i][j].setText("\u2658");
+                            ruudut[i][j].setFont(new Font("", Font.PLAIN, 52));
 
                         } else {
 
-                            ruudut[i][j].setIcon(hevonenMusta);
+                            //ruudut[i][j].setIcon(hevonenMusta);
+                            ruudut[i][j].setText("\u265E");
+                            ruudut[i][j].setFont(new Font("", Font.PLAIN, 52));
 
                         }
 
@@ -104,11 +120,15 @@ public class KayttoliittymaTyokalut {
 
                         if (nappula.getPelaaja().getId() == 1) {
 
-                            ruudut[i][j].setIcon(kuningasValkoinen);
+                            //ruudut[i][j].setIcon(kuningasValkoinen);
+                            ruudut[i][j].setText("\u2654");
+                            ruudut[i][j].setFont(new Font("", Font.PLAIN, 52));
 
                         } else {
 
-                            ruudut[i][j].setIcon(kuningasMusta);
+                            //ruudut[i][j].setIcon(kuningasMusta);
+                            ruudut[i][j].setText("\u265A");
+                            ruudut[i][j].setFont(new Font("", Font.PLAIN, 52));
 
                         }
 
@@ -116,11 +136,15 @@ public class KayttoliittymaTyokalut {
 
                         if (nappula.getPelaaja().getId() == 1) {
 
-                            ruudut[i][j].setIcon(kuningatarValkoinen);
+                            //ruudut[i][j].setIcon(kuningatarValkoinen);
+                            ruudut[i][j].setText("\u2655");
+                            ruudut[i][j].setFont(new Font("", Font.PLAIN, 52));
 
                         } else {
 
-                            ruudut[i][j].setIcon(kuningatarMusta);
+                            //ruudut[i][j].setIcon(kuningatarMusta);
+                            ruudut[i][j].setText("\u265B");
+                            ruudut[i][j].setFont(new Font("", Font.PLAIN, 52));
 
                         }
 
@@ -140,7 +164,8 @@ public class KayttoliittymaTyokalut {
 
             for (int j = 0; j <= 7; j++) {
 
-                ruudut[i][j].setIcon(null);
+                //ruudut[i][j].setIcon(null);
+                ruudut[i][j].setText("");
 
                 if (ruudunVaritys == 1) {
 
@@ -148,7 +173,7 @@ public class KayttoliittymaTyokalut {
 
                 } else {
 
-                    ruudut[i][j].setBackground(Color.darkGray);
+                    ruudut[i][j].setBackground(Color.lightGray);
 
                 }
 

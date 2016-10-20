@@ -103,51 +103,75 @@ public class Kayttoliittyma implements Runnable {
                 // Lisätään kuvat ruuduille
                 if (i == 1) {
 
-                    nappi.setIcon(sotilasValkoinen);
+                    //nappi.setIcon(sotilasValkoinen);
+                    nappi.setText("\u2659");
+                    nappi.setFont(new Font("", Font.PLAIN, 52));
 
                 } else if (i == 6) {
 
-                    nappi.setIcon(sotilasMusta);
+                    //nappi.setIcon(sotilasMusta);
+                    nappi.setText("\u265F");
+                    nappi.setFont(new Font("", Font.PLAIN, 52));
 
                 } else if ((i == 0 && j == 1) || (i == 0 && j == 6)) {
 
-                    nappi.setIcon(hevonenValkoinen);
-
+                    //nappi.setIcon(hevonenValkoinen);
+                    nappi.setText("\u2658");
+                    nappi.setFont(new Font("", Font.PLAIN, 52));
+                    
                 } else if ((i == 7 && j == 1) || (i == 7 && j == 6)) {
 
-                    nappi.setIcon(hevonenMusta);
+                    //nappi.setIcon(hevonenMusta);
+                    nappi.setText("\u265E");
+                    nappi.setFont(new Font("", Font.PLAIN, 52));
 
                 } else if ((i == 0 && j == 0) || (i == 0 && j == 7)) {
 
-                    nappi.setIcon(torniValkoinen);
+                    //nappi.setIcon(torniValkoinen);
+                    nappi.setText("\u2656");
+                    nappi.setFont(new Font("", Font.PLAIN, 52));
 
                 } else if ((i == 7 && j == 0) || (i == 7 && j == 7)) {
 
-                    nappi.setIcon(torniMusta);
+                    //nappi.setIcon(torniMusta);
+                    nappi.setText("\u265C");
+                    nappi.setFont(new Font("", Font.PLAIN, 52));
 
                 } else if (i == 0 && j == 4) {
 
-                    nappi.setIcon(kuningasValkoinen);
+                    //nappi.setIcon(kuningasValkoinen);
+                    nappi.setText("\u2654");
+                    nappi.setFont(new Font("", Font.PLAIN, 52));
 
                 } else if (i == 7 && j == 4) {
 
-                    nappi.setIcon(kuningasMusta);
+                    //nappi.setIcon(kuningasMusta);
+                    nappi.setText("\u265A");
+                    nappi.setFont(new Font("", Font.PLAIN, 52));
 
                 } else if (i == 0 && j == 3) {
-
-                    nappi.setIcon(kuningatarValkoinen);
+                                      
+                    //nappi.setIcon(kuningatarValkoinen);
+                    nappi.setText("\u2655");
+                    nappi.setFont(new Font("", Font.PLAIN, 52));
 
                 } else if (i == 7 && j == 3) {
 
-                    nappi.setIcon(kuningatarMusta);
+                    //nappi.setIcon(kuningatarMusta);
+                    nappi.setText("\u265B");
+                    nappi.setFont(new Font("", Font.PLAIN, 52));
 
                 } else if ((i == 0 && j == 2) || (i == 0 && j == 5)) {
 
-                    nappi.setIcon(lahettiValkoinen);
+                    //nappi.setIcon(lahettiValkoinen);
+                    nappi.setText("\u2657");
+                    nappi.setFont(new Font("", Font.PLAIN, 52));
 
                 } else if ((i == 7 && j == 2) || (i == 7 && j == 5)) {
 
-                    nappi.setIcon(lahettiMusta);
+                    //nappi.setIcon(lahettiMusta);
+                    nappi.setText("\u265D");
+                    nappi.setFont(new Font("", Font.PLAIN, 52));
 
                 }
 
@@ -157,7 +181,7 @@ public class Kayttoliittyma implements Runnable {
 
                 } else {
 
-                    nappi.setBackground(Color.darkGray);
+                    nappi.setBackground(Color.LIGHT_GRAY);
                 }
 
                 ruudunVaritys = 3 - ruudunVaritys;
