@@ -15,4 +15,5 @@ Päivä | Tunnit | Kuvaus
 07.10 | 3h | Sekvenssikaavioiden tekeminen, refaktorointi ja luokkakaavion päivittäminen
 11.10 | 4h | Pientä refaktorointia ja käyttöliittymän viimeistelyä
 13.10 | 3h | Bugien korjausta ja käyttöliittymän viimeistelyä
+20.10 | 1h | Käyttöliittymän viimeistely
 ... | ... | ...
